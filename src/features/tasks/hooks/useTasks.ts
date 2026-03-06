@@ -1,66 +1,39 @@
-import { User } from "firebase/auth";
 import { useEffect, useState } from "react";
-import { Alert, Keyboard } from "react-native";
+import { CategoryType } from "../constants/categories";
 import { taskService } from "../services/taskService";
 
-export const useTasks = (user: User | null) => {
-  const [taskTitle, setTaskTitle] = useState("");
+export const useTasks = (user: any) => {
   const [tasks, setTasks] = useState<any[]>([]);
+  const [taskTitle, setTaskTitle] = useState("");
   const [loading, setLoading] = useState(true);
 
-  // Sync tasks in real-time
   useEffect(() => {
-    let unsubscribe: () => void;
-
-    if (user) {
-      setLoading(true);
-      unsubscribe = taskService.getTasks(user.uid, (data) => {
-        setTasks(data);
-        setLoading(false);
-      });
-    }
-
-    return () => {
-      if (unsubscribe) unsubscribe();
-    };
+    if (!user) return;
+    const unsubscribe = taskService.getTasks(user.uid, (data) => {
+      setTasks(data);
+      setLoading(false);
+    });
+    return () => unsubscribe();
   }, [user]);
 
-  // Logic to add a task
-  const addTask = async () => {
-    if (!taskTitle.trim() || !user) return;
+  // Ngayon, tumatanggap na ito ng category galing sa UI
+  const addTask = async (category: CategoryType) => {
+    if (taskTitle.trim() === "" || !user) return;
     try {
-      await taskService.addTask(user.uid, taskTitle);
+      await taskService.addTask(user.uid, taskTitle, category);
       setTaskTitle("");
-      Keyboard.dismiss();
-    } catch (error: any) {
-      Alert.alert("Error", error);
+    } catch (error) {
+      console.error("Hook Error adding task:", error);
     }
   };
 
-  // Logic to delete a task
-  const deleteTask = (taskId: string) => {
-    Alert.alert("Delete Task", "Are you sure you want to delete this?", [
-      { text: "Cancel", style: "cancel" },
-      {
-        text: "Delete",
-        style: "destructive",
-        onPress: async () => {
-          try {
-            await taskService.deleteTask(taskId);
-          } catch (error: any) {
-            Alert.alert("Error", error);
-          }
-        },
-      },
-    ]);
+  const deleteTask = async (taskId: string) => {
+    try {
+      await taskService.deleteTask(taskId);
+    } catch (error) {
+      console.error("Hook Error deleting task:", error);
+    }
   };
 
-  return {
-    taskTitle,
-    setTaskTitle,
-    tasks,
-    loading,
-    addTask,
-    deleteTask,
-  };
+  return { tasks, taskTitle, setTaskTitle, loading, addTask, deleteTask };
 };
