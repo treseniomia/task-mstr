@@ -12,7 +12,7 @@
 * ** Clean Architecture**: Organized using a feature-based folder structure for scalability and maintainability.
 * **
 * Premium UI/UX**: Minimalist design featuring glassmorphism elements, smooth `reanimated` transitions, and consistent branding.
-* **🔥 Firebase Integration**: Secure authentication and real-time cloud data syncing for task management.
+* **Firebase Integration**: Secure authentication and real-time cloud data syncing for task management.
 
 ___
 Developed by: 
