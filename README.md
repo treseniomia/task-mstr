@@ -2,7 +2,7 @@
 
 **TaskMaster Pro** is a high-performance productivity application. It combines a sleek Pomodoro Timer with robust task management, emphasizing a clean, decoupled architecture and a premium user experience.
 
----
+----
 
 ## Features
 
@@ -14,6 +14,6 @@
 * **Premium UI/UX**: Minimalist design featuring glassmorphism elements, smooth `reanimated` transitions, and consistent branding.
 * **Firebase Integration**: Secure authentication and real-time cloud data syncing for task management.
 
-___
+____
 Developed by: 
 Mia Tresenio
