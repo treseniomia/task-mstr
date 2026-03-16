@@ -13,6 +13,7 @@
 * **
 * **Premium UI/UX**: Minimalist design featuring glassmorphism elements, smooth `reanimated` transitions, and consistent branding.
 * **Firebase Integration**: Secure authentication and real-time cloud data syncing for task management.
+* **Clean Architecture**
 
 ____
 Developed by: 
