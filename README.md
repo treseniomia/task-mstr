@@ -17,5 +17,4 @@
 
 ____
 Developed by: 
-
-Mia Myca Tresenio
+Mia Tresenio
