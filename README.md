@@ -1,6 +1,6 @@
-# TaskMaster Pro
+# TaskMaster
 
-**TaskMaster Pro** is a productivity application. It combines a sleek Pomodoro Timer with robust task management, emphasizing a clean, decoupled architecture and a premium user experience.
+**TaskMaster** is a productivity application. It combines a sleek Pomodoro Timer with robust task management, emphasizing a clean, decoupled architecture and a premium user experience.
 
 ----
 
