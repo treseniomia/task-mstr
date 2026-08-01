@@ -17,4 +17,4 @@
 
 ____
 Developed by: 
-Mia Tresenio Sexy
+Mia Tresenio 
