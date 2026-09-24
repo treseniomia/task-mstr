@@ -15,6 +15,3 @@
 * **Firebase Integration**: Secure authentication and real-time cloud data syncing for task management.
 * **Clean Architecture**
 
-____
-Developed by: 
-Mia Tresenio 
